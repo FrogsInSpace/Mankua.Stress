@@ -6,6 +6,7 @@
 #define IDS_PARAMETERS                  2
 #define IDS_MXSTRESS                    3
 #define IDS_LIBDESC                     4
+#define IDS_ABOUT_RECOMPILE             5
 #define IDS_STRAINCOL                   7
 #define IDS_RELAXCOL                    8
 #define IDS_COMPCOL                     9
@@ -25,6 +26,7 @@
 #define IDB_ABOUT                       111
 #define IDB_ABOUT_MASK                  112
 #define IDB_BANNER_CRACKART             113
+#define IDB_STRESS_LOGO                 115
 #define IDC_STRESS_ALLEDGES             1000
 #define IDC_SHOW_STRAIN                 1001
 #define IDC_SHOW_COMP                   1002
@@ -36,6 +38,8 @@
 #define IDC_STATIC_RELAX                1008
 #define IDC_STATIC_COMP                 1009
 #define IDC_STATIC_MIX                  1010
+#define IDC_STATIC_BUILDTEXT            1011
+#define IDC_STATIC_RECOMPILE            1011
 #define IDC_STRESS_HELP                 1015
 #define IDC_STRESS_ABOUT                1016
 #define IDC_BANNER_CRACKART             1017
@@ -62,7 +66,7 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        114
+#define _APS_NEXT_RESOURCE_VALUE        118
 #define _APS_NEXT_COMMAND_VALUE         40001
 #define _APS_NEXT_CONTROL_VALUE         1018
 #define _APS_NEXT_SYMED_VALUE           101

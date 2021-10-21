@@ -23,6 +23,11 @@ class StressTexmapClassDesc:public ClassDesc2 {
 	int 			IsPublic()					{ return TRUE; }
 	void *			Create( BOOL loading )		{ return new StressTexmap; }
 	const TCHAR *	ClassName()					{ return GetString(IDS_CLASSNAME); }
+		
+#if MAX_VERSION_MAJOR >= 24
+	const TCHAR *	NonLocalizedClassName()				{ return ClassName(); }
+#endif 
+
 	SClass_ID		SuperClassID()				{ return TEXMAP_CLASS_ID; }
 	Class_ID 		ClassID()					{ return STRESS_TEX_CLASSID; }
 	const TCHAR* 	Category()					{ return _T("");  }
@@ -119,7 +124,7 @@ INT_PTR SkelTexDlgProc::DlgProc(TimeValue t, IParamMap2 *map, HWND hWnd, UINT ms
 			switch (LOWORD(wParam))
 			{
 				case IDC_BANNER_CRACKART:
-					ShellExecute(NULL, _T("open"), _T("http://www.crackart.org"), NULL, NULL, SW_SHOWNORMAL);
+					ShellExecute(NULL, _T("open"), _T("http://www.mankua.com/stress.php"), NULL, NULL, SW_SHOWNORMAL);
 				break;
 
 				case IDC_STRESS_HELP:
@@ -324,7 +329,11 @@ void StressTexmap::SetReference(int i, RefTargetHandle rtarg)
 	else pblock = (IParamBlock2 *)rtarg; 
 }
 
+#if MAX_VERSION_MAJOR < 24
 TSTR StressTexmap::SubAnimName(int i) 
+#else
+TSTR StressTexmap::SubAnimName(int i,bool localized ) 
+#endif
 {
 	if (i< NSUBTEX)
 		return GetSubTexmapTVName(i);
@@ -384,7 +393,12 @@ void StressTexmap::SetSubTexmap(int i, Texmap *m)
 		}
 }
 
-TSTR StressTexmap::GetSubTexmapSlotName(int i) {
+#if MAX_VERSION_MAJOR < 24
+TSTR StressTexmap::GetSubTexmapSlotName(int i) 
+#else
+TSTR StressTexmap::GetSubTexmapSlotName(int i, bool localized ) 
+#endif
+{
 	switch(i) {
 		case 0:  return TSTR(GetString(IDS_STR_MAP)); 
 		case 1:  return TSTR(GetString(IDS_RLX_MAP)); 
