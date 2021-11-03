@@ -206,7 +206,7 @@ class StressTexmap: public Texmap
 #if MAX_VERSION_MAJOR < 24
 		TSTR GetSubTexmapSlotName(int i);
 #else
-		TSTR GetSubTexmapSlotName(int i, bool localized = false );
+		TSTR GetSubTexmapSlotName(int i, bool localized = false ) const ;
 #endif
 
 
@@ -216,7 +216,7 @@ class StressTexmap: public Texmap
 #if MAX_VERSION_MAJOR < 24
 		void GetClassName(TSTR& s) { s = GetString(IDS_CLASSNAME); }
 #else
-		void GetClassName(TSTR& s, bool localized = false ) { s = GetString(IDS_CLASSNAME); }
+		void GetClassName(TSTR& s, bool localized = false ) const { s = GetString(IDS_CLASSNAME); }
 #endif
 		
 		void DeleteThis() { delete this; }	

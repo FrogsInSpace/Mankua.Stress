@@ -332,11 +332,11 @@ void StressTexmap::SetReference(int i, RefTargetHandle rtarg)
 #if MAX_VERSION_MAJOR < 24
 TSTR StressTexmap::SubAnimName(int i) 
 #else
-TSTR StressTexmap::SubAnimName(int i,bool localized ) 
+TSTR StressTexmap::SubAnimName(int i,bool localized )
 #endif
 {
 	if (i< NSUBTEX)
-		return GetSubTexmapTVName(i);
+		return  GetSubTexmapTVName(i);
 	else return TSTR(_T(""));
 }
 
@@ -396,7 +396,7 @@ void StressTexmap::SetSubTexmap(int i, Texmap *m)
 #if MAX_VERSION_MAJOR < 24
 TSTR StressTexmap::GetSubTexmapSlotName(int i) 
 #else
-TSTR StressTexmap::GetSubTexmapSlotName(int i, bool localized ) 
+TSTR StressTexmap::GetSubTexmapSlotName(int i, bool localized )  const
 #endif
 {
 	switch(i) {
