@@ -101,21 +101,21 @@ END
 // Bitmap
 //
 
-IDB_MANKUA_BLACK        BITMAP                  "MankuaLogo.bmp"
+IDB_MANKUA_BLACK        BITMAP                  "res/MankuaLogo.bmp"
 
-IDB_MANKUA_WHITE        BITMAP                  "MankuaLogo.bmp"
+IDB_MANKUA_WHITE        BITMAP                  "res/MankuaLogo.bmp"
 
-IDB_HELP                BITMAP                  "Help.bmp"
+IDB_HELP                BITMAP                  "res/Help.bmp"
 
-IDB_HELP_MASK           BITMAP                  "Help_Mask.bmp"
+IDB_HELP_MASK           BITMAP                  "res/Help_Mask.bmp"
 
-IDB_ABOUT               BITMAP                  "About.bmp"
+IDB_ABOUT               BITMAP                  "res/About.bmp"
 
-IDB_ABOUT_MASK          BITMAP                  "About_Mask.bmp"
+IDB_ABOUT_MASK          BITMAP                  "res/About_Mask.bmp"
 
-IDB_BANNER_CRACKART     BITMAP                  "MankuaLogo.bmp"
+IDB_BANNER_CRACKART     BITMAP                  "res/MankuaLogo.bmp"
 
-IDB_STRESS_LOGO         BITMAP                  "stresslogo.bmp"
+IDB_STRESS_LOGO         BITMAP                  "res/stresslogo.bmp"
 
 
 /////////////////////////////////////////////////////////////////////////////
@@ -127,17 +127,6 @@ IDD_ABOUT AFX_DIALOG_LAYOUT
 BEGIN
     0
 END
-
-#endif    // English (United States) resources
-/////////////////////////////////////////////////////////////////////////////
-
-
-/////////////////////////////////////////////////////////////////////////////
-// English (United Kingdom) resources
-
-#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENG)
-LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_UK
-#pragma code_page(1252)
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -268,7 +257,7 @@ BEGIN
     IDS_CMP_MAPON           "Compression Map Toggle"
 END
 
-#endif    // English (United Kingdom) resources
+#endif     // English (United States) resources
 /////////////////////////////////////////////////////////////////////////////
 
 
