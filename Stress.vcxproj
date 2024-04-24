@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{12A2D8E6-CF54-4D0F-BBEF-9667CAB4725F}</ProjectGuid>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Hybrid - Max2025|x64">
+      <Configuration>Hybrid - Max2025</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release - Max2026|x64">
+      <Configuration>Release - Max2026</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release - Max2025|x64">
+      <Configuration>Release - Max2025</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release - Max2024|x64">
+      <Configuration>Release - Max2024</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release - Max2023|x64">
+      <Configuration>Release - Max2023</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release - Max2022|x64">
+      <Configuration>Release - Max2022</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release - Max2021|x64">
+      <Configuration>Release - Max2021</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release - Max2020|x64">
+      <Configuration>Release - Max2020</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release - Max2019|x64">
+      <Configuration>Release - Max2019</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release - Max2018|x64">
+      <Configuration>Release - Max2018</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release - Max2017|x64">
+      <Configuration>Release - Max2017</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(ProjectDir)propertysheets\MaxSDKSetup.props" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+    <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>	
+  <PropertyGroup>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <TargetName>$(ProjectName)_$(MaxSDKRelease)_$(PlatformTarget)</TargetName>
+    <TargetExt>.dlm</TargetExt>
+  </PropertyGroup>	
+	
+	 <ItemDefinitionGroup Condition="$(Configuration.Contains('Release'))">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Midl>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(MaxSDKPath)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>MAX64;CUSTOM_MFC;WIN32;_WINDOWS;SHELL32LIB;UNICODE;_UNICODE;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <WarningLevel>Level3</WarningLevel>
+      <TreatWarningAsError>false</TreatWarningAsError>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;SHELL32LIB%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Link>
+      <AdditionalDependencies>maxscrpt.lib;MNMath.lib;poly.lib;bmm.lib;core.lib;geom.lib;mesh.lib;maxutil.lib;paramblk2.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(MaxSdkLib);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>.\src/Plugin.def</ModuleDefinitionFile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX64</TargetMachine>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="$(Configuration.Contains('Hybrid')) OR $(Configuration.Contains('Debug'))">
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(MaxSDKPath)\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+	  <!--<UndefinePreprocessorDefinitions>DEFINE_TO_UNDEFINE;%(UndefinePreprocessorDefinitions)</UndefinePreprocessorDefinitions>-->
+      <PreprocessorDefinitions>MAX64;CUSTOM_MFC;WIN32;_WINDOWS;SHELL32LIB;UNICODE;_UNICODE;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <BrowseInformation>true</BrowseInformation>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0c09</Culture>
+    </ResourceCompile>
+    <Link>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <AdditionalDependencies>maxscrpt.lib;MNMath.lib;poly.lib;bmm.lib;core.lib;geom.lib;mesh.lib;maxutil.lib;paramblk2.lib;comctl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(MaxSdkLib);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <ModuleDefinitionFile>.\src/Plugin.def</ModuleDefinitionFile>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <TargetMachine>MachineX64</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <SetChecksum>true</SetChecksum>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <!-- Clear private debug symbol setting that gets set by Max SDK's property sheet -->
+      <StripPrivateSymbols>
+      </StripPrivateSymbols>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Image Include="src/res/About.bmp" />
+    <Image Include="src/res/About_Mask.bmp" />
+    <Image Include="src/res/Help.bmp" />
+    <Image Include="src/res/Help_Mask.bmp" />
+    <Image Include="src/res/MankuaLogo.bmp" />
+    <Image Include="src/res/stresslogo.bmp" />
+   </ItemGroup>
+   <ItemGroup>
+	<None Include="src/Plugin.def" />
+   </ItemGroup>
+   <ItemGroup>
+    <ClInclude Include="src/resource.h" />
+    <ClInclude Include="src/Texmap.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="src/Texmap.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src/Plugin.cpp" />
+    <ClCompile Include="src/Texmap.cpp" />
+    <ClCompile Include="src/TexShade.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

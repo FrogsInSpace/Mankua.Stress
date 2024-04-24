@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="res">
+      <UniqueIdentifier>{78bc1fe6-7222-4434-95e9-16a544c96184}</UniqueIdentifier>
+      <Extensions>ico;cur;bmp;dlg;bin;rgs;gif;jpg;jpeg;jpe</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src/Plugin.cpp" />
+    <ClCompile Include="src/Texmap.cpp" />
+    <ClCompile Include="src/TexShade.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src/resource.h" />
+    <ClInclude Include="src/Texmap.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src/Plugin.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="src/Texmap.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="src/res/MankuaLogo.bmp">
+      <Filter>res</Filter>
+    </Image>
+    <Image Include="src/res/About.bmp">
+      <Filter>res</Filter>
+    </Image>
+    <Image Include="src/res/About_Mask.bmp">
+      <Filter>res</Filter>
+    </Image>
+    <Image Include="src/res/Help.bmp">
+      <Filter>res</Filter>
+    </Image>
+    <Image Include="src/res/Help_Mask.bmp">
+      <Filter>res</Filter>
+    </Image>
+    <Image Include="src/res/stresslogo.bmp">
+      <Filter>res</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
